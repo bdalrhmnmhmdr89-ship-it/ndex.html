@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>نور الإيمان</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="brand" id="brand" hidden>
+    <svg viewBox="0 0 120 120" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="6"><rect x="24" y="24" width="72" height="72"/><rect x="24" y="24" width="72" height="72" transform="rotate(45 60 60)"/></g></svg>
+    <span>نور الإيمان</span>
+  </header>
+
+  <section id="start">
+    <div class="hero">
+      <svg class="seal" viewBox="0 0 120 120" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.2"><rect x="24" y="24" width="72" height="72"/><rect x="24" y="24" width="72" height="72" transform="rotate(45 60 60)"/><rect x="36" y="36" width="48" height="48"/><rect x="36" y="36" width="48" height="48" transform="rotate(45 60 60)"/><circle cx="60" cy="60" r="12"/></g></svg>
+      <h1>نور الإيمان</h1>
+      <p class="lead">مئة وخمسون سؤالًا في العقيدة والقرآن والسيرة والفقه والأذكار. إذا أجبت عن السؤال الأخير تحصل على شهادة تقدير باسمك، وإذا أخطأت في سؤال تظهر لك الإجابة الصحيحة مع توضيحها.</p>
+    </div>
+
+    <form id="startForm" class="card" novalidate>
+      <label for="nameInput">اكتب اسمك كما تريد أن يظهر في الشهادة</label>
+      <input id="nameInput" type="text" maxlength="40" autocomplete="name" placeholder="مثال: أحمد جبل">
+      <p class="err" id="nameErr" hidden>اكتب اسمك أولًا، حرفان على الأقل.</p>
+      <div class="form-actions">
+        <button class="btn primary" type="submit">ابدأ المسابقة</button>
+      </div>
+      <div class="resume" id="resumeBox" hidden>
+        <p id="resumeText"></p>
+        <div class="form-actions">
+          <button class="btn" type="button" id="resumeBtn">متابعة من حيث توقفت</button>
+        </div>
+      </div>
+    </form>
+
+    <h2 class="cats-title">محاور المسابقة</h2>
+    <ul class="cats" id="catList"></ul>
+
+    <aside class="card follow">
+      <h2>تابعنا وتواصل معنا</h2>
+      <p>تابع قناة المسابقة على واتساب ليصلك كل جديد. وللتواصل أو لإرسال أسئلة جديدة للمسابقة راسلنا على الرقم:</p>
+      <div class="phone-row">
+        <bdi class="phone" dir="ltr">01559371900</bdi>
+        <button class="btn copy-btn" type="button" data-copy="01559371900">نسخ الرقم</button>
+      </div>
+      <div class="form-actions">
+        <a class="btn primary" href="https://whatsapp.com/channel/0029Vb8pAm72Jl89pbsams2p" target="_blank" rel="noopener">تابع القناة على واتساب</a>
+        <a class="btn" href="https://wa.me/201559371900" target="_blank" rel="noopener">راسلنا على واتساب</a>
+      </div>
+    </aside>
+  </section>
+
+  <section id="quiz" hidden>
+    <div class="meta"><span id="qCount"></span><span id="scoreLive"></span></div>
+    <div class="bar" id="barWrap" role="progressbar" aria-label="التقدم في المسابقة" aria-valuemin="0" aria-valuemax="150" aria-valuenow="0"><i id="bar"></i></div>
+    <article class="card q">
+      <span class="chip" id="qCat"></span>
+      <h2 id="qText"></h2>
+      <div class="opts" id="opts"></div>
+      <div class="fb" id="fb" role="status" aria-live="polite" hidden></div>
+      <button class="btn primary" type="button" id="nextBtn" hidden></button>
+    </article>
+  </section>
+
+  <section id="result" hidden>
+    <h2 class="res-title">بارك الله فيك، أتممت المسابقة</h2>
+    <p class="res-sum" id="resSummary"></p>
+    <div class="certwrap"><img id="certImg" alt="شهادة تقدير"></div>
+    <p class="hint">لحفظ الشهادة اضغط عليها مطولًا أو انقر بزر الفأرة الأيمن ثم اختر حفظ الصورة، أو التقط لقطة للشاشة.</p>
+
+    <div class="card nameedit">
+      <label for="nameEdit">تعديل الاسم على الشهادة</label>
+      <div class="row">
+        <input id="nameEdit" type="text" maxlength="40">
+        <button class="btn" type="button" id="nameBtn">تحديث الشهادة</button>
+      </div>
+    </div>
+
+    <aside class="card follow" style="margin-top:0;margin-bottom:18px">
+      <h2>تابع القناة واقترح أسئلة</h2>
+      <p>تابع قناة المسابقة على واتساب ليصلك كل جديد. وللتواصل أو لإرسال أسئلة جديدة راسلنا على الرقم:</p>
+      <div class="phone-row">
+        <bdi class="phone" dir="ltr">01559371900</bdi>
+        <button class="btn copy-btn" type="button" data-copy="01559371900">نسخ الرقم</button>
+      </div>
+      <div class="form-actions">
+        <a class="btn primary" href="https://whatsapp.com/channel/0029Vb8pAm72Jl89pbsams2p" target="_blank" rel="noopener">تابع القناة على واتساب</a>
+        <a class="btn" href="https://wa.me/201559371900" target="_blank" rel="noopener">راسلنا على واتساب</a>
+      </div>
+    </aside>
+
+    <details class="review" id="review">
+      <summary id="reviewSum"></summary>
+      <ol id="wrongList"></ol>
+    </details>
+
+    <button class="btn" type="button" id="restartBtn">إعادة المسابقة من البداية</button>
+  </section>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
